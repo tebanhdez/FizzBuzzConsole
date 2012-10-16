@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby -w
+require "rubygems"
+require "simpleconsole"
+# require File.dirname(__FILE__) + "/../"
+
+class Controller < SimpleConsole::Controller
+def default
+  cadenaResultado = ""
+  for indice in 1..100
+    valor =""
+    valor << "Fizz" if(indice % 3 == 0)
+    valor << "Buzz" if(indice % 5 == 0)
+    cadenaResultado << (valor.empty? ? indice.to_s() : valor) << ", "
+  end
+  puts(cadenaResultado)
+end
+
+class View < SimpleConsole::View
+end
+
+SimpleConsole::Application.run(ARGV, Controller, View)
+end
